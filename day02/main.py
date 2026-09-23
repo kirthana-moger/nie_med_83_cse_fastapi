@@ -23,6 +23,10 @@ class TicketResponse(TicketCreate):
     id : int
 
 #APIs
+@app.get("/tickets")
+def get_tickets():
+    return list(db.values())
+
 @app.get("/tickets/{id}")
 def get_ticket(id: int):
     if id not in db:
